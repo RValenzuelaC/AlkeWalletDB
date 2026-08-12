@@ -1,17 +1,4 @@
-/*¿Qué es una Base de Datos Relacional?
-Organización en tablas: La información se guarda en tablas que están formadas por filas y columnas.
-Relación entre datos: Las tablas se pueden conectar entre sí para relacionar información.
-Clave primaria: Sirve para identificar de forma única cada registro de una tabla.
-Clave foránea: Permite conectar una tabla con otra utilizando un campo en común.
-Uso de SQL: SQL se utiliza para consultar, agregar, modificar y eliminar información de las tablas.
-Ejemplos: Algunos sistemas conocidos son MySQL, PostgreSQL y Oracle Database.
-Ventajas de las Bases de Datos Relacionales
-Integridad de los datos: Permiten establecer reglas para evitar información incorrecta o incompleta.
-Propiedades ACID: Ayudan a que las transacciones se realicen correctamente y que no queden operaciones a medias.
-Menos datos repetidos: Al dividir la información en diferentes tablas relacionadas, se puede evitar almacenar los mismos datos varias veces.
-Consultas más completas: Es posible unir diferentes tablas mediante JOIN para obtener información más detallada.
-Mayor organización: Al tener los datos separados y relacionados, es más fácil mantener y administrar la información.
-*/
+
 -- leccion 1
 Create Database ALkeWallet;
 Use alkewallet;
@@ -32,6 +19,7 @@ sender_user_id int not null,
 reciver_user_id int not null,
 importe decimal(10,2) not null,
 transaction_date datetime default current_timestamp,
+currency_id INT NOT NULL,
 foreign key (sender_user_id) references Usuarios(user_id), 
 foreign key (reciver_user_id) references Usuarios(user_id),
  FOREIGN KEY (currency_id) REFERENCES Moneda(currency_id)
